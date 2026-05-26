@@ -1,0 +1,55 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "screener-generator"
+version = "0.1.0"
+description = "Turn a research brief into a fieldwork-ready recruitment screener: qualifying questions, quota logic, and disqualification criteria."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Kostas Kazakos" }]
+keywords = ["ux-research", "screener", "recruitment", "quota", "survey", "cpr", "computational-product-research"]
+classifiers = [
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: MIT License",
+    "Intended Audience :: Science/Research",
+]
+dependencies = [
+    "click>=8.1",
+    "rich>=13.0",
+]
+
+[project.optional-dependencies]
+# LLM enrichment is on by default at runtime, but the heavy deps are optional
+# extras so the rule-based core installs lean and runs fully offline.
+llm = ["dspy-ai>=2.4", "litellm>=1.40"]
+openai = ["dspy-ai>=2.4", "litellm>=1.40"]
+anthropic = ["dspy-ai>=2.4", "litellm>=1.40"]
+gemini = ["dspy-ai>=2.4", "litellm>=1.40"]
+ui = ["streamlit>=1.34"]
+dev = ["pytest>=7.4", "ruff>=0.5"]
+
+[project.scripts]
+screener-gen = "screener_generator.cli:cli"
+
+[project.urls]
+Homepage = "https://github.com/kgkazakos/screener-generator"
+Repository = "https://github.com/kgkazakos/screener-generator"
+
+[tool.setuptools.packages.find]
+include = ["screener_generator*"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "UP", "B"]
+ignore = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
