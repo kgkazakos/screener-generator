@@ -83,7 +83,7 @@ with st.sidebar:
         index=0,
         format_func=lambda b: {
             "anthropic": "Claude Opus",
-            "gemini": "Gemini 3.1 Pro",
+            "gemini": "Gemini 4 Argon",
             "openai": "GPT-5.5",
         }.get(b, b),
         disabled=not use_llm,
