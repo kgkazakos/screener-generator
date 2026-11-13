@@ -10,7 +10,7 @@ articulation, or consent screens, and it never invents a verdict.
 LLM support is ON BY DEFAULT across three backends:
 
     anthropic  → anthropic/claude-opus-4-7      (Claude Opus)
-    gemini     → gemini/gemini-3.1-pro-preview  (Gemini 3.1 Pro)
+    gemini     → gemini/gemini-4-argon  (Gemini 4 Argon)
     openai     → openai/gpt-5.5                  (GPT-5.5)
 
 If DSPy / LiteLLM is not installed, or no API key is set, enrichment is skipped
@@ -32,7 +32,7 @@ from .models import Disposition, Screener
 # Canonical backend → model string map. Update model strings here only.
 BACKENDS: dict[str, str] = {
     "anthropic": "anthropic/claude-opus-4-7",
-    "gemini": "gemini/gemini-3.1-pro-preview",
+    "gemini": "gemini/gemini-4-argon",
     "openai": "openai/gpt-5.5",
 }
 

@@ -24,7 +24,7 @@ It is a drafting partner, not an autopilot. Every screener it produces is meant 
 pip install -e .
 # optional LLM enrichment (any one provider, or all):
 pip install -e ".[anthropic]"   # Claude Opus
-pip install -e ".[gemini]"      # Gemini 3.1 Pro
+pip install -e ".[gemini]"      # Gemini 4 Argon
 pip install -e ".[openai]"      # GPT-5.5
 pip install -e ".[ui]"          # Streamlit UI
 ```
@@ -62,7 +62,7 @@ LLM enrichment is **on by default** but strictly **additive** — it rewrites qu
 Three backends are configured in `llm.py`:
 
 - `anthropic/claude-opus-4-7` (Claude Opus)
-- `gemini/gemini-3.1-pro-preview` (Gemini 3.1 Pro)
+- `gemini/gemini-4-argon` (Gemini 4 Argon)
 - `openai/gpt-5.5` (GPT-5.5)
 
 ## What this is
